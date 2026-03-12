@@ -1,3 +1,28 @@
+// PalindromeChecker class (Service class)
+class PalindromeChecker {
+
+    // Method to check palindrome
+    public boolean checkPalindrome(String word) {
+
+        int start = 0;
+        int end = word.length() - 1;
+
+        while (start < end) {
+
+            if (word.charAt(start) != word.charAt(end)) {
+                return false;
+            }
+
+            start++;
+            end--;
+        }
+
+        return true;
+    }
+}
+
+
+// Main Application Class
 public class PalindromeCheckerApp {
 
     /**
@@ -7,36 +32,17 @@ public class PalindromeCheckerApp {
 
         System.out.println("Palindrome Checker App - Version 1.0");
 
-        String word = "A man a plan a canal Panama";
+        String word = "racecar";
 
-        // Normalize string (remove spaces and convert to lowercase)
-        String normalized = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
+        // Create object of PalindromeChecker
+        PalindromeChecker checker = new PalindromeChecker();
 
-        boolean isPalindrome = checkPalindrome(normalized);
+        boolean result = checker.checkPalindrome(word);
 
-        if (isPalindrome) {
-            System.out.println("\"" + word + "\" is a Palindrome.");
+        if (result) {
+            System.out.println(word + " is a Palindrome.");
         } else {
-            System.out.println("\"" + word + "\" is NOT a Palindrome.");
+            System.out.println(word + " is NOT a Palindrome.");
         }
-    }
-
-    // Two-pointer palindrome check
-    public static boolean checkPalindrome(String str) {
-
-        int start = 0;
-        int end = str.length() - 1;
-
-        while (start < end) {
-
-            if (str.charAt(start) != str.charAt(end)) {
-                return false;
-            }
-
-            start++;
-            end--;
-        }
-
-        return true;
     }
 }
