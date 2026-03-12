@@ -1,5 +1,6 @@
 import java.util.Deque;
 import java.util.ArrayDeque;
+
 public class PalindromeCheckerApp {
 
     /**
