@@ -1,4 +1,4 @@
-
+import java.util.Stack;
 public class PalindromeCheckerApp {
 
     /**
@@ -10,30 +10,30 @@ public class PalindromeCheckerApp {
         System.out.println("Palindrome Checker App - Version 1.0");
 
         // Hardcoded string
-        String word = "racecar";
+        String word = "madam";
 
-        // Convert string to character array
-        char[] characters = word.toCharArray();
+        // Create stack
+        Stack<Character> stack = new Stack<>();
 
-        // Two pointers
-        int start = 0;
-        int end = characters.length - 1;
+        // Push characters into stack
+        for (int i = 0; i < word.length(); i++) {
+            stack.push(word.charAt(i));
+        }
 
         boolean isPalindrome = true;
 
-        // Compare characters from both ends
-        while (start < end) {
+        // Pop and compare
+        for (int i = 0; i < word.length(); i++) {
 
-            if (characters[start] != characters[end]) {
+            char ch = stack.pop();
+
+            if (word.charAt(i) != ch) {
                 isPalindrome = false;
                 break;
             }
-
-            start++;
-            end--;
         }
 
-        // Display result
+        // Print result
         if (isPalindrome) {
             System.out.println(word + " is a Palindrome.");
         } else {
