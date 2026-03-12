@@ -7,31 +7,36 @@ public class PalindromeCheckerApp {
 
         System.out.println("Palindrome Checker App - Version 1.0");
 
-        String word = "racecar";
+        String word = "A man a plan a canal Panama";
 
-        boolean isPalindrome = checkPalindrome(word, 0, word.length() - 1);
+        // Normalize string (remove spaces and convert to lowercase)
+        String normalized = word.replaceAll("[^a-zA-Z]", "").toLowerCase();
+
+        boolean isPalindrome = checkPalindrome(normalized);
 
         if (isPalindrome) {
-            System.out.println(word + " is a Palindrome.");
+            System.out.println("\"" + word + "\" is a Palindrome.");
         } else {
-            System.out.println(word + " is NOT a Palindrome.");
+            System.out.println("\"" + word + "\" is NOT a Palindrome.");
         }
     }
 
-    // Recursive method to check palindrome
-    public static boolean checkPalindrome(String word, int start, int end) {
+    // Two-pointer palindrome check
+    public static boolean checkPalindrome(String str) {
 
-        // Base condition
-        if (start >= end) {
-            return true;
+        int start = 0;
+        int end = str.length() - 1;
+
+        while (start < end) {
+
+            if (str.charAt(start) != str.charAt(end)) {
+                return false;
+            }
+
+            start++;
+            end--;
         }
 
-        // If characters don't match
-        if (word.charAt(start) != word.charAt(end)) {
-            return false;
-        }
-
-        // Recursive call
-        return checkPalindrome(word, start + 1, end - 1);
+        return true;
     }
 }
