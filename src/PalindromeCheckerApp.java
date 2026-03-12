@@ -24,8 +24,8 @@ public class PalindromeCheckerApp {
 
             char ch = word.charAt(i);
 
-            stack.push(ch);     // LIFO
-            queue.add(ch);      // FIFO
+            stack.push(ch);   // LIFO
+            queue.add(ch);    // FIFO
         }
 
         boolean isPalindrome = true;
