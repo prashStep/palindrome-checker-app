@@ -1,4 +1,3 @@
-
 public class PalindromeCheckerApp {
 
     /**
@@ -15,13 +14,11 @@ public class PalindromeCheckerApp {
         // Convert string to character array
         char[] characters = word.toCharArray();
 
-        // Two pointers
         int start = 0;
         int end = characters.length - 1;
 
         boolean isPalindrome = true;
 
-        // Compare characters from both ends
         while (start < end) {
 
             if (characters[start] != characters[end]) {
@@ -33,7 +30,6 @@ public class PalindromeCheckerApp {
             end--;
         }
 
-        // Display result
         if (isPalindrome) {
             System.out.println(word + " is a Palindrome.");
         } else {
